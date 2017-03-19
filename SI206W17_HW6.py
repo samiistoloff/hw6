@@ -89,8 +89,11 @@ programs_written = [10, 500, 20, 131, 46]
 
 # Given that provided code, write one line of code to create a zip iterator instance saved in a variable called student_tups, here:
 
+student_tups = zip(names, seniority, programs_written)
 
 # Then write a line of code to cast the iterator to a list (it should end up as a list of tuples). Save that list in a variable called student_tups_list.
+
+student_tups_list = list(student_tups)
 
 
 ## You can test this out with any code you like here, and similar below other problems, but make sure to comment out any code that uses up the iterator in order to pass the tests!
@@ -101,6 +104,7 @@ programs_written = [10, 500, 20, 131, 46]
 print("\n\n***** Problem 5 *****")
 # Use a list comprehension to create a list of Student instances out of the student_tups list you just created in Problem 2, and save that list in a variable called programmers. You should make sure you pass these tests before continuing, as you'll need this list for problems later on!
 
+programmers = [Student(x[0], x[1], x[2]) for x in student_tups_list]
 
 
 ## [PROBLEM 6]
@@ -112,6 +116,9 @@ print("\n\n***** Problem 6 *****")
 
 ## Write code to cast that iterator to a list. Save that list in the variable prod_list.
 
+prod_iter = map(lambda x: x.num_programs/x.years_UM, programmers)
+prod_list = list(prod_iter)
+
 ## You may add a method to the Student class if you wish in order to do this, but you do not need to. (If you do, make sure you do not create any syntax errors that keep code/tests from running!)
 
 
@@ -122,17 +129,17 @@ print("\n\n***** Problem 7 *****")
 
 ## But be careful that if you use answers from previous problems, you use the LISTs you generated, so that all your tests can still pass and you avoid confusion!
 
-
+names_and_productivities = [(t[0],t[1]) for t in zip(names, prod_list)]
 
 ## [PROBLEM 8]
 print("\n\n***** Problem 8 *****")
 # Use the Python filter function to select the subset of programmers who have names with 5 or more characters. (i.e. ["Albert","Dinesh","Euijin"]) Your result should be an filter object that points to Student instances. Save that filter iterator in a variable called long_names.
 
-
+long_names = filter(lambda x: len(x.name) >= 5, programmers)
 
 ## Then write code to cast the value of long_names to a list and save it in the variable long_names_list. 
 
-
+long_names_list = list(long_names)
 
 ## [PROBLEM 9]
 print("\n\n***** Problem 9 *****")
