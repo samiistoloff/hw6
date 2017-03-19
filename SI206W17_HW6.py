@@ -149,6 +149,7 @@ print("\n\n***** Problem 9 *****")
 ## Note that you can use another list you have already created for this problem.
 
 
+names_with_not_too_much_seniority = [t[0] for t in student_tups_list if len(t[0]) > t[1]]
 
 
 ## [PROBLEM 10]
